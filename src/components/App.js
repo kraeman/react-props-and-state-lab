@@ -49,14 +49,19 @@ class App extends React.Component {
   }
 
   onAdoptPet = (petID) => {
-    let thing = this.state.pets
-    let TP = thing.find(pet => pet.id === petID)
-    let ind = thing.indexOf(TP, 0)
-    TP.isAdopted = true
-    this[ind] = TP
-    // debugger
+    // let copyOfPet = this.state.pets
+    // let TP = copyOfPet.find(pet => pet.id === petID)
+    // let ind = copyOfPet.indexOf(TP, 0)
+    // TP.isAdopted = true
+    // copyOfPet[ind] = TP
+    // // debugger
+    // this.setState({
+    //   pets: copyOfPet
+    // })
+
+    let pets = this.state.pets.map(pet => pet.id === petID ? {...pet, isAdopted: true} : pet)
     this.setState({
-      pets: thing
+      pets: pets
     })
       
   }

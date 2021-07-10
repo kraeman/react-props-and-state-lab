@@ -9,12 +9,12 @@ class Pet extends React.Component {
       return '♀'
     }
   }
-
   showButton = () => {
+    // debugger
     if(this.props.pet.isAdopted) {
     return <button className="ui disabled button">Already adopted</button>
   }else{
-    return <button className="ui primary button" onClick={this.props.onAdoptPet(this.props.pet.id)}>Adopt pet</button>
+    return <button className="ui primary button" onClick={() => this.props.onAdoptPet(this.props.pet.id)}>Adopt pet</button>
   }}
 
 
